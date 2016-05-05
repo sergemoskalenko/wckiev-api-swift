@@ -34,7 +34,7 @@ class ViewController: UIViewController {
 
     func getInfo2() {
         //    NSURL* url = [NSURL URLWithString:@"wckiev://run/#location=50.45,30.57&zoom=13&comfort=0"];
-        let myselfUrlString: String = "wckievapi2://run/#".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let myselfUrlString: String = "wckievapi2://run/#".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let url: NSURL = NSURL(string: "wckiev://list/#location=50.45,30.57&zoom=13&comfort=0&sender=\(myselfUrlString)")!
         if UIApplication.sharedApplication().canOpenURL(url) {
             UIApplication.sharedApplication().openURL(url)
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     func getInfo() {
         //    NSURL* url = [NSURL URLWithString:@"wckiev://run/#location=50.45,30.57&zoom=13&comfort=0"];
-        let myselfUrlString: String = "wckievapi2://run/#".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let myselfUrlString: String = "wckievapi2://run/#".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let url: NSURL = NSURL(string: "wckiev://detail/#item=500&sender=\(myselfUrlString)")!
         // 201
         UIApplication.sharedApplication().openURL(url)
