@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     }
 
     func getInfo() {
-        let myselfUrlString: String = "wckievapi3://run/#".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let myselfUrlString: String = "wckievapi3://run/#".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let url: NSURL = NSURL(string: "wckiev://list/#location=50.45,30.57&zoom=13&comfort=0&sender=\(myselfUrlString)")!
         if UIApplication.sharedApplication().canOpenURL(url) {
             UIApplication.sharedApplication().openURL(url)
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     func getItemInfo(button: UIButton) {
         let itemId: Int = button.tag
         //    NSURL* url = [NSURL URLWithString:@"wckiev://run/#location=50.45,30.57&zoom=13&comfort=0"];
-        let myselfUrlString: String = "wckievapi3://run/#".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let myselfUrlString: String = "wckievapi3://run/#".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let url: NSURL = NSURL(string: "wckiev://detail/#item=\(itemId)&sender=\(myselfUrlString)")!
         UIApplication.sharedApplication().openURL(url)
     }
